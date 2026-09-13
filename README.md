@@ -63,7 +63,6 @@ I then ran validation queries to check primary keys, foreign key relationships a
 
 The SQL part of the project is split into separate scripts:
 
-```text
 01_create_schemas.sql
 02_create_staging_tables.sql
 03_create_core_tables.sql
