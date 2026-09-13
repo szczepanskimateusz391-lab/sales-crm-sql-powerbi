@@ -135,13 +135,13 @@ The Analytics product category generates the highest revenue and profit in the d
 
 The example below uses the `LEAD()` window function to calculate how long a lead stayed in each funnel stage.
 
-![Advanced SQL](images/04_sql_advanced_analysis.png)
+![SQL Performance](images/05_sql_performance.png)
 
 ## Query performance
 
 `EXPLAIN ANALYZE` was used to check query execution and confirm index usage.
 
-![SQL Performance](images/05_sql_performance.png)
+![Advanced SQL](images/04_sql_advanced_analysis.png)
 
 ## Why I built this project
 
