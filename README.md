@@ -74,3 +74,86 @@ The SQL part of the project is split into separate scripts:
 08_advanced_analysis.sql
 09_create_power_bi_views.sql
 10_indexes_and_performance.sql
+
+The analysis includes joins, CTEs, window functions, `LEAD()`, `LAG()`, `ROW_NUMBER()`, `DENSE_RANK()`, conditional aggregation, date calculations, funnel analysis, customer value analysis and profitability analysis.
+
+I also added indexes to frequently used columns and checked query execution with `EXPLAIN ANALYZE`.
+
+## Main results
+
+### Executive KPIs
+
+- Total Revenue: 74.7M PLN
+- Total Profit: 48.1M PLN
+- Profit Margin: 64.3%
+- Completed Orders: 2 369
+- Average Order Value: 31 536 PLN
+
+### CRM funnel
+
+- New: 5 000
+- Contacted: 4 940
+- Qualified: 3 616
+- Proposal: 2 091
+- Won: 918
+
+Overall lead-to-win conversion: **18.4%**
+
+### Lead source conversion
+
+- Referral: 32.2%
+- Trade Show: 25.7%
+- Google Ads: 19.4%
+- LinkedIn: 15.4%
+- Website: 13.9%
+- Cold Email: 11.1%
+
+## Key insights
+
+Referral is the strongest acquisition source in the dataset, with a conversion rate of 32.2%.
+
+The Proposal stage is the longest part of the funnel, taking around 15 days on average.
+
+Only 18.4% of all leads reach the Won stage.
+
+The Analytics product category generates the highest revenue and profit in the dataset.
+
+## Power BI report
+
+### Executive Overview
+
+![Executive Overview](images/01_executive_overview.png)
+
+### CRM Pipeline & Lead Analysis
+
+![CRM Pipeline](images/02_crm_pipeline.png)
+
+## Power BI data model
+
+![Power BI Data Model](images/03_powerbi_data_model.png)
+
+## Advanced SQL example
+
+The example below uses the `LEAD()` window function to calculate how long a lead stayed in each funnel stage.
+
+![Advanced SQL](images/04_sql_advanced_analysis.png)
+
+## Query performance
+
+`EXPLAIN ANALYZE` was used to check query execution and confirm index usage.
+
+![SQL Performance](images/05_sql_performance.png)
+
+## Why I built this project
+
+The goal was to show the full analytics workflow, not just the final dashboard.
+
+The project covers data quality checks, cleaning, relational modeling, SQL analysis, performance optimization and Power BI reporting.
+
+This is a portfolio project based on synthetic data.
+
+## Author
+
+MS Analytics
+
+Data. Insights. Growth.
