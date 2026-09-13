@@ -1,29 +1,23 @@
-Sales & CRM Analytics – PostgreSQL + Power BI
+# Sales & CRM Analytics — PostgreSQL + Power BI
 
 This project is an end-to-end sales and CRM analytics project built with PostgreSQL and Power BI.
 
-The goal was to create a complete workflow starting from raw and imperfect data, then clean and validate it in SQL, prepare an analytical layer and finally build a Power BI report that could be used to monitor sales performance and CRM pipeline efficiency.
+The goal was to create a complete workflow starting from raw and imperfect data, then clean and validate it in SQL, prepare an analytical layer and finally build a Power BI report for sales performance and CRM pipeline analysis.
 
 The dataset is synthetic and was created for portfolio purposes.
 
-Project workflow
+## Project workflow
 
-Raw CSV data
-PostgreSQL staging layer
-Data quality checks
-Data cleaning and validation
-Core relational tables
-Analytics views
-Power BI dashboard
+Raw CSV data → PostgreSQL staging → Data quality checks → Data cleaning and validation → Core relational tables → Analytics views → Power BI
 
-Tools used
+## Tools used
 
-PostgreSQL 18
-pgAdmin 4
-SQL
-Power BI Desktop
-Power Query
-DAX
+- PostgreSQL 18
+- pgAdmin 4
+- SQL
+- Power BI Desktop
+- Power Query
+- DAX
 
 Database structure
 
