@@ -1,14 +1,27 @@
 # Sales & CRM Analytics — PostgreSQL + Power BI
 
-This project is an end-to-end sales and CRM analytics project built with PostgreSQL and Power BI.
+This is an end-to-end sales and CRM analytics project built with PostgreSQL and Power BI.
 
-The goal was to create a complete workflow starting from raw and imperfect data, then clean and validate it in SQL, prepare an analytical layer and finally build a Power BI report for sales performance and CRM pipeline analysis.
+I wanted to go beyond creating a dashboard, so I built the project from raw data through cleaning, validation, SQL analysis and data modeling, all the way to the final Power BI report.
 
 The dataset is synthetic and was created for portfolio purposes.
 
-## Project workflow
+## Project overview
 
-Raw CSV data → PostgreSQL staging → Data quality checks → Data cleaning and validation → Core relational tables → Analytics views → Power BI
+The project focuses on sales performance and CRM pipeline analysis.
+
+The main questions I wanted to answer were:
+
+- How much revenue and profit is being generated?
+- Which sales representatives and product categories perform best?
+- Which lead sources convert best?
+- Where do leads drop out of the funnel?
+- Which sales stages take the longest?
+- Which customers generate the most value?
+
+## Workflow
+
+Raw CSV data → PostgreSQL staging → Data quality checks → Cleaning and validation → Core relational tables → Analytics views → Power BI
 
 ## Tools used
 
@@ -19,70 +32,38 @@ Raw CSV data → PostgreSQL staging → Data quality checks → Data cleaning an
 - Power Query
 - DAX
 
-Database structure
+## Database structure
 
-The database is divided into four main schemas.
+I divided the PostgreSQL database into four schemas:
 
-staging
+- `staging` — raw imported data
+- `quality` — detected data quality issues
+- `core` — cleaned and validated relational tables
+- `analytics` — views prepared for reporting and Power BI
 
-Contains the raw imported data before cleaning.
+The core layer includes customers, sales representatives, products, leads, lead status history, orders and order items.
 
-Tables include:
+## Data quality work
 
-customers_raw
-sales_representatives_raw
-products_raw
-leads_raw
-lead_status_history_raw
-orders_raw
-order_items_raw
+The raw data contains realistic issues such as:
 
-core
+- duplicate IDs
+- missing values
+- invalid email addresses
+- inconsistent text formatting
+- broken relationships between tables
+- invalid dates
+- incorrect numeric values
 
-Contains cleaned and validated data used for analysis.
+I used SQL to identify and clean these issues before loading the data into the core layer.
 
-Tables include:
+I then ran validation queries to check primary keys, foreign key relationships and required fields before using the data for analysis.
 
-customers
-sales_representatives
-products
-leads
-lead_status_history
-orders
-order_items
+## SQL workflow
 
-quality
+The SQL part of the project is split into separate scripts:
 
-Used to identify and store data quality problems found in the raw dataset.
-
-The checks include duplicate records, missing values, invalid emails, incorrect relationships between tables and invalid numeric values.
-
-analytics
-
-Contains views created specifically for analysis and Power BI.
-
-Main views:
-
-vw_sales_details
-vw_sales_rep_performance
-vw_customer_value
-vw_lead_source_performance
-vw_pipeline_stage_performance
-vw_lead_stage_durations
-vw_monthly_sales
-
-Data cleaning
-
-The raw dataset contains several realistic data quality issues.
-
-I used SQL to identify and clean problems such as duplicate IDs, missing values, inconsistent text formatting, invalid email addresses, incorrect relationships between tables, invalid dates and incorrect numeric values.
-
-After the cleaning process, validation queries were used to check primary keys, foreign key relationships and required fields before the data was used for reporting.
-
-SQL structure
-
-The SQL part of the project is divided into separate scripts:
-
+```text
 01_create_schemas.sql
 02_create_staging_tables.sql
 03_create_core_tables.sql
@@ -93,99 +74,3 @@ The SQL part of the project is divided into separate scripts:
 08_advanced_analysis.sql
 09_create_power_bi_views.sql
 10_indexes_and_performance.sql
-
-The project uses joins, CTEs, window functions, LAG, LEAD, ROW_NUMBER, DENSE_RANK, CASE, FILTER, conditional aggregation, date calculations, running totals, funnel analysis and customer value analysis.
-
-Indexes were also added to frequently used columns and EXPLAIN ANALYZE was used to review query performance.
-
-Main business results
-
-Total Revenue: 74.7 mln zł
-
-Total Profit: 48.1 mln zł
-
-Profit Margin: 64.3%
-
-Completed Orders: 2 369
-
-Average Order Value: 31 536 zł
-
-CRM pipeline
-
-Total Leads: 5 000
-
-Contacted: 4 940
-
-Qualified: 3 616
-
-Proposal: 2 091
-
-Won: 918
-
-Overall lead conversion rate: 18.4%
-
-Lead source conversion
-
-Referral: 32.2%
-
-Trade Show: 25.7%
-
-Google Ads: 19.4%
-
-LinkedIn: 15.4%
-
-Website: 13.9%
-
-Cold Email: 11.1%
-
-Average time in funnel stages
-
-New: 3.0 days
-
-Contacted: 8.0 days
-
-Qualified: 10.6 days
-
-Proposal: 15.1 days
-
-Main insights
-
-Referral is the strongest lead source with a conversion rate of 32.2%.
-
-Cold Email performs the weakest with a conversion rate of 11.1%.
-
-The Proposal stage is the longest part of the sales process and takes around 15 days on average.
-
-Only 18.4% of all leads reach the Won stage, which shows that improving conversion between Qualified, Proposal and Won could have a significant impact on results.
-
-The Analytics product category generates the highest revenue and profit in the dataset.
-
-Power BI report
-
-The final Power BI report contains two pages.
-
-Executive Overview
-
-This page focuses on overall sales performance.
-
-It includes Total Revenue, Total Profit, Profit Margin, Completed Orders, Average Order Value, Monthly Revenue Trend, Top Sales Representatives and Revenue vs Profit by Product Category.
-
-CRM Pipeline & Lead Analysis
-
-This page focuses on lead performance and the sales funnel.
-
-It includes Total Leads, Won Leads, Lead Conversion, Average Days to Win, Lead Funnel, Conversion by Lead Source, Lead Source Performance and Average Time in Funnel Stage.
-
-What I wanted to show with this project
-
-The main goal was not only to build a dashboard.
-
-I wanted to show the full process behind it: importing raw data, finding quality problems, cleaning the data, building a structured PostgreSQL model, creating analytical SQL views and connecting the final reporting layer to Power BI.
-
-This project demonstrates how I approach a complete analytics workflow rather than only the visualization part.
-
-Author
-
-MS Analytics
-
-Data. Insights. Growth.
